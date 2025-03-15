@@ -1,6 +1,6 @@
-# Ledger API
+# Ledger CLI
 
-Ledger API é uma aplicação simples de gestão financeira via linha de comando (CLI) utilizando **Ruby** e **SQLite**. O projeto faz parte de um desafio fornecido pela comunidade [DevsNorte](https://github.com/devsnorte/desafios/tree/main/0001-ledger).
+Ledger CLI é uma aplicação simples de gestão financeira via linha de comando (CLI) utilizando **Ruby** e **SQLite**. O projeto faz parte de um desafio fornecido pela comunidade [DevsNorte](https://github.com/devsnorte/desafios/tree/main/0001-ledger).
 
 ## ✨ Funcionalidades
 
@@ -14,6 +14,12 @@ Ledger API é uma aplicação simples de gestão financeira via linha de comando
 
 - **Ruby** (versão 3.0 ou superior)
 - **SQLite3**
+
+📌 Escolha da Stack
+
+A escolha de Ruby para este projeto foi motivada pelo fato de ter sido a primeira linguagem com a qual tive contato para aprendizado. Durante esse processo, percebi que Ruby é uma ferramenta poderosa, simples e eficaz, permitindo um desenvolvimento ágil e conciso. Sua sintaxe intuitiva e a vasta comunidade de suporte tornam o desenvolvimento mais produtivo e prazeroso.
+
+Além disso, como a ideia do desafio era utilizar o que há de mais "simples" dentro da linguagem para a entrega, optei por soluções nativas e diretas. A utilização do SQLite3 também se justifica pela sua leveza e facilidade de integração em aplicações pequenas, sem necessidade de um servidor de banco de dados dedicado.
 
 ## ♻️ Instalação
 
