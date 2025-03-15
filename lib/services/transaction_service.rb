@@ -1,3 +1,7 @@
+require 'csv'
+require 'json'
+require 'fileutils'
+
 require_relative '../database'
 
 class TransactionService
@@ -42,5 +46,24 @@ class TransactionService
     Database.connection.execute(query, params).map do |row|
       Transaction.new(id: row[0], value: row[1], date: row[2], description: row[3])
     end
+  end
+
+  def self.export_to_csv(filename)
+    transactions = all
+
+    FileUtils.mkdir_p('export') # Criar pasta export caso não exista
+    CSV.open(filename, 'w', headers: true) do |csv|
+      csv << %W[ID Data Valor Descri\u00E7\u00E3o]
+      transactions.each { |t| csv << [t.id, t.date, t.value, t.description || '-'] }
+    end
+  end
+
+  def self.export_to_json(filename)
+    transactions = all.map do |t|
+      { id: t.id, date: t.date, value: t.value, description: t.description }
+    end
+
+    FileUtils.mkdir_p('export')
+    File.write(filename, JSON.pretty_generate(transactions))
   end
 end

@@ -17,7 +17,8 @@ class CLI
     puts '1. Adicionar transação'
     puts '2. Listar transações'
     puts '3. Consultar saldo'
-    puts '4. Sair'
+    puts '4. Exportar histórico'
+    puts '5. Sair'
     print '> '
   end
 
@@ -26,7 +27,8 @@ class CLI
     when 1 then add_transaction
     when 2 then list_transactions
     when 3 then show_balance
-    when 4 then exit_program
+    when 4 then export_transactions
+    when 5 then exit_program
     else puts 'Opção inválida!'
     end
   end
@@ -75,6 +77,24 @@ class CLI
   def self.exit_program
     puts 'Saindo...'
     exit
+  end
+
+  def self.export_transactions
+    print 'Escolha o formato para exportação (csv/json): '
+    format = gets.chomp.downcase
+
+    case format
+    when 'csv'
+      filename = 'export/transactions.csv'
+      TransactionService.export_to_csv(filename)
+      puts "Transações exportadas para #{filename}!"
+    when 'json'
+      filename = 'export/transactions.json'
+      TransactionService.export_to_json(filename)
+      puts "Transações exportadas para #{filename}!"
+    else
+      puts "Formato inválido. Escolha 'csv' ou 'json'."
+    end
   end
 end
 
