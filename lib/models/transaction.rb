@@ -27,4 +27,8 @@ class Transaction
   def self.balance
     TransactionService.balance
   end
+
+  def self.filtered(type: nil, start_date: nil, end_date: nil)
+    TransactionService.filtered(type: type, start_date: start_date, end_date: end_date)
+  end
 end

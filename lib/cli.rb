@@ -41,8 +41,21 @@ class CLI
   end
 
   def self.list_transactions
-    transactions = Transaction.all
-    return puts 'Nenhuma transação registrada.' if transactions.empty?
+    print 'Filtrar por tipo? (entrada/saída/deixar em branco para todas): '
+    type = gets.chomp.downcase
+    type = nil if type.empty?
+
+    print 'Filtrar por data inicial? (YYYY-MM-DD ou deixar em branco): '
+    start_date = gets.chomp
+    start_date = nil if start_date.empty?
+
+    print 'Filtrar por data final? (YYYY-MM-DD ou deixar em branco): '
+    end_date = gets.chomp
+    end_date = nil if end_date.empty?
+
+    transactions = Transaction.filtered(type: type, start_date: start_date, end_date: end_date)
+
+    return puts 'Nenhuma transação encontrada com esses filtros.' if transactions.empty?
 
     rows = transactions.map { |t| [t.id, t.date, t.value, t.description || '-'] }
 
