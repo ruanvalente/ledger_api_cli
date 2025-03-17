@@ -49,6 +49,24 @@ Para iniciar a aplicação, execute:
 ruby cli.rb
 ```
 
+Ou utilizando o Docker 🐳
+
+📦 Build da Imagem
+Para construir a imagem Docker do projeto, execute o comando abaixo na raiz do projeto:
+
+```sh
+docker build -t ledger-cli-app .
+```
+
+🖥 Executando a Aplicação (modo interativo)
+Como a aplicação é uma CLI interativa, é necessário rodar o container com o modo interativo (-it):
+
+```sh
+docker run -it ledger-cli-app
+```
+
+Você verá o menu interativo sendo exibido no terminal.
+
 ### ⚙️ Opções no menu
 
 - **1** - Adicionar transação
