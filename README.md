@@ -36,11 +36,6 @@ Além disso, como a ideia do desafio era utilizar o que há de mais "simples" de
    bundle install
    ```
 
-3. Configure o banco de dados SQLite:
-   ```sh
-   ruby lib/models/transaction.rb
-   ```
-
 ## ⚙️ Uso
 
 Para iniciar a aplicação, execute:
